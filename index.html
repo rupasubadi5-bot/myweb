@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ===== ORIGINAL BACKGROUND ===== */
+html,body{
+margin:0;
+padding:0;
+background:#000;
+font-family:sans-serif;
+}
+
+/* ===== HIDE BLOGGER ===== */
+header,.header,.navbar,.blog-pager,.footer,
+.post-title,.comments,#comments,#footer{
+display:none !important;
+}
+
+/* ===== OVERLAY ===== */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+z-index:999999;
+padding:15px;
+display:none;
+overflow:auto;
+}
+
+
+/* ===== NEON BOX (ORIGINAL BORDER KEPT) ===== */
+.neon-box{
+border:2px solid #00f0ff;
+box-shadow:0 0 15px #00f0ff,0 0 30px #00f0ff;
+border-radius:15px;
+padding:15px;
+
+/* NEW GLASS TOUCH */
+background:rgba(255,255,255,0.03);
+backdrop-filter:blur(10px);
+}
+
+/* ===== TITLE ===== */
+.title{
+color:#00f0ff;
+text-align:center;
+margin-bottom:15px;
+font-size:18px;
+text-shadow:0 0 10px #00f0ff;
+}
+
+/* ===== PRODUCT ===== */
+.product{
+background:#111;
+padding:12px;
+border-radius:12px;
+display:flex;
+align-items:center;
+margin-bottom:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.product:hover{
+transform:scale(1.03);
+box-shadow:0 0 10px #00f0ff;
+}
+
+.product img{
+width:60px;height:60px;
+border-radius:10px;
+margin-right:10px;
+}
+
+/* ===== PRICE ===== */
+.price-list{display:none;}
+
+.price-item{
+border:1px solid #00f0ff;
+padding:10px;
+margin:5px 0;
+border-radius:8px;
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.price-item:hover{
+background:#00f0ff;
+color:#000;
+}
+
+.price-item.active{
+background:#00f0ff;
+color:#000;
+}
+
+/* ===== BUTTON ===== */
+.buy-btn{
+display:none;
+width:100%;
+padding:10px;
+margin-top:5px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+
+
+/* GRADIENT + GLOW */
+background:linear-gradient(90deg,#00f0ff,#00ffa6);
+box-shadow:0 0 10px #00f0ff;
+}
+
+/* ===== POPUPS ===== */
+.popup,#warningPopup,#formPopup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999999;
+}
+
+/* POPUP BOX */
+.popup-box{
+background:#000;
+border:2px solid #FDBD01;
+box-shadow:0 0 25px #FDBD01;
+border-radius:15px;
+padding:20px;
+text-align:center;
+color:#00f0ff;
+width:90%;
+max-width:320px;
+
+/* GLASS */
+backdrop-filter:blur(10px);
+}
+
+
+/* INPUT */
+input{
+width:90%;
+padding:10px;
+margin:5px;
+border:none;
+border-radius:8px;
+background:#111;
+color:#fff;
+}
+
+/* BUTTON */
+.done-btn{
+margin-top:10px;
+padding:10px;
+width:100%;
+background:linear-gradient(90deg,#00f0ff,#00ffa6);
+border:none;
+border-radius:10px;
+font-weight:bold;
+
+/* IMPORTANT */
+color:#fff;   /* <-- ADD THIS */
+font-size:16px;
+}
+
+/* ===== LOADING ===== */
+#loadingPopup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:#39FF14;
+z-index:99999999;
+}
+
+
+/* TEXT */
+.sec-text{
+font-weight:bold;
+font-size:18px;
+text-shadow:0 0 10px #39FF14;
+}
+
+/* BAR BOX */
+.progress-box{
+width:80%;
+height:12px;
+background:#111;
+margin-top:15px;
+border-radius:20px;
+overflow:hidden;
+}
+
+/* RAINBOW BAR */
+#bar{
+height:100%;
+width:0%;
+border-radius:20px;
+background:linear-gradient(270deg,
+red,orange,yellow,green,cyan,blue,violet);
+background-size:600% 600%;
+animation:rainbow 3s linear infinite;
+}
+
+@keyframes rainbow{
+0%{background-position:0%}
+100%{background-position:100%}
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- LOADING -->
+<div id="loadingPopup">
+<div class="sec-text">Security Checking...</div>
+
+<div class="progress-box">
+<div id="bar"></div>
+</div>
+
+<div id="percent">0%</div>
+</div>
+
+<!-- MAIN -->
+<div class="overlay">
+<div class="neon-box">
+
+<div class="title">🔥 SRT X CHEATS 🔥</div>
+    
+    <!-- PRODUCT 1 -->
+
+    <div class="product" onclick="toggleList('p1')">
+
+      <img src="https://i.postimg.cc/Jnwh1T2q/Screenshot-20260421-102516.jpg">
+
+      <div class="product-name">DRIP CLINT ( ROOT + NON ROOT )</div>
+
+    </div>
+
+    <div id="p1" class="price-list">
+    
+    
+      </div>
+
+  </div>
+
+</div>
+
+
+<!-- WARNING -->
+<div id="warningPopup">
+<div class="popup-box">
+ ⚠️ Payment Time: 8AM - 10PM ⚠️ 
+<br><br>
+<button onclick="openForm()" class="done-btn">Next</button>
+</div>
+</div>
+
+<!-- FORM -->
+<div id="formPopup">
+<div class="popup-box">
+
+<input id="trx" placeholder="AMOUNT">
+<input id="name" placeholder="YOUR Name">
+<input id="wa" placeholder="WhatsApp">
+<input id="tt" placeholder="TikTok">
+
+<button onclick="showQR()" class="done-btn">Continue</button>
+
+</div>
+</div>
+
+
+<!-- QR -->
+<div class="popup" id="popup">
+<div class="popup-box">
+
+<div>Scan & Pay</div>
+<img class="qr" src="https://i.postimg.cc/zXm07q9C/Screenshot-20260425-142906.jpg">
+
+<button id="payBtn" class="done-btn" onclick="paymentDone()">Wait 10s</button>
+
+</div>
+</div>
+
+<script>
+
+let selectedPrice="";
+
+/* LOADING */
+let p=0;
+let load=setInterval(()=>{
+p++;
+bar.style.width=p+"%";
+percent.innerText=p+"%";
+
+if(p>=100){
+clearInterval(load);
+loadingPopup.style.display="none";
+document.querySelector(".overlay").style.display="block";
+}
+},30);
+
+
+/* TOGGLE */
+function toggleList(id){
+document.querySelectorAll('.price-list').forEach(el=>el.style.display="none");
+document.getElementById(id).style.display="block";
+}
+
+/* SELECT */
+function selectPrice(el,price){
+document.querySelectorAll('.price-item').forEach(i=>i.classList.remove('active'));
+el.classList.add('active');
+selectedPrice=price;
+el.parentElement.querySelector('.buy-btn').style.display="block";
+}
+
+/* POPUPS */
+function openPopup(){
+warningPopup.style.display="flex";
+}
+
+function openForm(){
+warningPopup.style.display="none";
+formPopup.style.display="flex";
+}
+
+function showQR() {
+    formPopup.style.display = "none";
+    popup.style.display = "flex";
+    
+    let sec = 10;
+    let btn = document.getElementById("payBtn");
+    timerComplete = false; // reset flag
+
+    let t = setInterval(() => {
+        btn.innerText = "Wait " + sec + "s";
+        sec--;
+
+        if (sec <= 0) {
+            clearInterval(t);
+            btn.style.display = "block";
+            btn.innerText = "Payment Done";
+            timerComplete = true; // allow button click
+        }
+    }, 1000);
+}
+  
+    let timerComplete = false;
+  
+  
+function paymentDone() {
+    if (!timerComplete) {
+        alert("Please wait until the timer completes!");
+        return;
+    }
+
+    let msg =
+        "🔥 ORDER 🔥\n" +
+        "Product: " + selectedPrice + "\n" +
+        "Name: " + document.getElementById("name").value + "\n" +
+        "NRP: " + document.getElementById("trx").value + "\n" +
+        "WhatsApp: " + document.getElementById("wa").value + "\n" +
+        "TikTok: " + document.getElementById("tt").value;
+
+    window.location.href = "https://wa.me/9779827260865?text=" + encodeURIComponent(msg);
+}
+
+</script>
+
+</body>
+  </html>
